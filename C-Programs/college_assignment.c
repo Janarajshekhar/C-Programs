@@ -6,6 +6,7 @@ void convert_fahrenhite_to_celsius();
 void calculate_the_sum_of_1_to_n();
 void find_largest_in_two_integer();
 void find_lowest_in_two_integer();
+void convert_a_positive_integer_number_in_text();
 void check_a_number_is_even_or_odd();
 void find_grade_of_a_student();
 void check_a_number_is_divisible_by_7();
@@ -44,6 +45,7 @@ int main()
     // calculate_the_sum_of_1_to_n();
     // find_largest_in_two_integer();
     // find_lowest_in_two_integer();
+    convert_a_positive_integer_number_in_text();
     // check_a_number_is_even_or_odd();
     // find_grade_of_a_student();
     // check_a_number_is_divisible_by_7();
@@ -58,7 +60,7 @@ int main()
     // check_a_number_is_prime_or_not();
     // check_a_number_is_strong_or_not();
     // fibonacci_squence_from_0_to_n();
-    tibonacci_squence_from_0_to_n();
+    // tibonacci_squence_from_0_to_n();
     // display_even_fibonacci_squence_from_0_to_n();
     // display_odd_fibonacci_squence_from_0_to_n();
     // series_1();
@@ -145,6 +147,47 @@ void find_lowest_in_two_integer()
     printf("\n %d is lowest number",b);
     else
     printf("\n %d and %d is same number",a,b);
+}
+void convert_a_positive_integer_number_in_text()
+{
+    int num;
+    printf("\n Enter a number form 0 to 9 : ");
+    scanf("%d",&num);
+    switch(num)
+    {
+        case 0 :
+            printf("\n Zero");
+            break;
+        case 1 :
+            printf("\n One");
+            break;
+        case 2 :
+            printf("\n Two");
+            break;
+        case 3 :
+            printf("\n Three");
+            break;
+        case 4 :
+            printf("\n Four");
+            break;
+        case 5 :
+            printf("\n Five");
+            break;
+        case 6 :
+            printf("\n Six");
+            break;
+        case 7 :
+            printf("\n Seven");
+            break;
+        case 8 :
+            printf("\n Eight");
+            break;
+        case 9 :
+            printf("\n nine");
+            break;
+        default: 
+            printf("Invalid input!\nPlease enter a number between 0-9");
+    }
 }
 void check_a_number_is_even_or_odd()
 {
