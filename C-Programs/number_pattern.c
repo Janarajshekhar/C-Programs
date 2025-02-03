@@ -103,9 +103,9 @@ void f6()
 void f7()
 {
     int n,i,j;
-    n=3;
-    // printf("\n how many row enter :");
-    // scanf("%d",&n);
+    printf("\n how many row enter(odd number) :");
+    scanf("%d",&n);
+    n=n-(n/2);
     for(i=1;i<=n;i++)
     {
         for(j=1;j<=n-i;j++)

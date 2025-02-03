@@ -14,6 +14,7 @@ void check_a_number_is_perfect_square_or_not();
 void find_largest_in_two_integer_using_conditional_operator();
 void check_a_number_is_even_or_odd_using_conditional_operator();
 void calculate_the_sum_of_first_n_natural_number_using_loop();
+void calculate_the_factorial_of_given_number();
 void count_the_digites_of_a_integer();
 void find_the_reverse_of_a_integer();
 void check_a_number_is_palindrom_or_not();
@@ -21,9 +22,21 @@ void check_a_number_is_armstrong_or_not();
 void check_a_number_is_prime_or_not();
 void check_a_number_is_strong_or_not();
 void fibonacci_squence_from_0_to_n();
-void tibonacci_squence_from_0_to_n();
+void display_first_n_fibonacci_sequence();
+void tribonacci_squence_from_0_to_n();
+void display_first_n_tribonacci_sequence();
 void display_even_fibonacci_squence_from_0_to_n();
 void display_odd_fibonacci_squence_from_0_to_n();
+void display_prime_fibonacci_squence_from_0_to_n();
+void star_pattern_1();
+void star_pattern_2();
+void star_pattern_3();
+void star_pattern_4();
+void star_pattern_5();
+void star_pattern_6();
+void star_pattern_7();
+void star_pattern_8();
+void star_pattern_9();
 void series_1();
 void series_2();
 void series_3();
@@ -37,6 +50,8 @@ void display_the_number_which_are_divisible_by_11_from_n_number_using_array();
 void display_all_perfect_square_number_from_n_number_using_array();
 void write_a_program_to_sort_an_array_of_n_element_in_ascending_order();
 void linear_search_using_array();
+void matrix_addition_of_two_m__n_matrix();
+void matrix_subtraction_of_two_m__n_matrix();
 int main()
 {
     // perform_all_arithmatic_operator();
@@ -45,7 +60,7 @@ int main()
     // calculate_the_sum_of_1_to_n();
     // find_largest_in_two_integer();
     // find_lowest_in_two_integer();
-    convert_a_positive_integer_number_in_text();
+    // convert_a_positive_integer_number_in_text();
     // check_a_number_is_even_or_odd();
     // find_grade_of_a_student();
     // check_a_number_is_divisible_by_7();
@@ -53,6 +68,7 @@ int main()
     // find_largest_in_two_integer_using_conditional_operator();
     // check_a_number_is_even_or_odd_using_conditional_operator();
     // calculate_the_sum_of_first_n_natural_number_using_loop();
+    // calculate_the_factorial_of_given_number();
     // count_the_digites_of_a_integer();
     // find_the_reverse_of_a_integer();
     // check_a_number_is_palindrom_or_not();
@@ -60,9 +76,21 @@ int main()
     // check_a_number_is_prime_or_not();
     // check_a_number_is_strong_or_not();
     // fibonacci_squence_from_0_to_n();
-    // tibonacci_squence_from_0_to_n();
+    // display_first_n_fibonacci_sequence();
+    // tribonacci_squence_from_0_to_n();
+    // display_first_n_tribonacci_sequence();
     // display_even_fibonacci_squence_from_0_to_n();
     // display_odd_fibonacci_squence_from_0_to_n();
+    // display_prime_fibonacci_squence_from_0_to_n();
+    // star_pattern_1();
+    // star_pattern_2();
+    // star_pattern_3();
+    // star_pattern_4();
+    // star_pattern_5();
+    // star_pattern_6();
+    // star_pattern_7();
+    // star_pattern_8();
+    // star_pattern_9();
     // series_1();
     // series_2();
     // series_3();
@@ -76,6 +104,8 @@ int main()
     // display_all_perfect_square_number_from_n_number_using_array();
     // write_a_program_to_sort_an_array_of_n_element_in_ascending_order();
     // linear_search_using_array();
+    // matrix_addition_of_two_m__n_matrix();
+    matrix_subtraction_of_two_m__n_matrix();
     return 0;
 }
 void perform_all_arithmatic_operator()
@@ -274,6 +304,17 @@ void calculate_the_sum_of_first_n_natural_number_using_loop()
     s=s+i;
     printf("\n sum of first %d natural number is %d",n,s);
 }
+void calculate_the_factorial_of_given_number()
+{
+    int num,i,f=1;
+    printf("\n Enter a number : ");
+    scanf("%d",&num);
+    for(i=1;i<=num;i++)
+    {
+        f=f*i;
+    }
+    printf("\n factorial of %d is %d",num,f);
+}
 void count_the_digites_of_a_integer()
 {
     int a,i,b;
@@ -397,7 +438,42 @@ void fibonacci_squence_from_0_to_n()
         c=a+b;
     }
 }
-void tibonacci_squence_from_0_to_n()
+void display_first_n_fibonacci_sequence()
+{
+    int a=0,b=1,c,n,i;
+    printf("\n");
+    printf("\n Enter the value of n : ");
+    scanf("%d",&n);
+    printf("%d\t",a);
+    printf("%d\t",b);
+    for(i=3;i<=n;i++)
+    {
+        c=a+b;
+        a=b;
+        b=c;
+        printf("%d\t",c);
+    }
+}
+void tribonacci_squence_from_0_to_n()
+{
+    int a=0,b=0,c=1,d,n,i;
+    printf("\n");
+    printf("\n Enter the value of n : ");
+    scanf("%d",&n);
+    printf("%d\t",a);
+    printf("%d\t",b);
+    printf("%d\t",c);
+    d=a+b+c;
+    while(d<=n)
+    {
+        printf("%d\t",d);
+        a=b;
+        b=c;
+        c=d;
+        d=a+b+c;
+    }
+}
+void display_first_n_tribonacci_sequence()
 {
     int a=0,b=0,c=1,d,n,i;
     printf("\n");
@@ -453,6 +529,172 @@ void display_odd_fibonacci_squence_from_0_to_n()
         a=b;
         b=c;
         c=a+b; 
+    }
+}
+void display_prime_fibonacci_squence_from_0_to_n()
+{
+    int a=0,b=1,c=0,d,n,i;
+    printf("\n");
+    printf("\n Enter the value of n : ");
+    scanf("%d",&n);
+    printf("%d",a);
+    printf("\t %d",b);
+    c=a+b;
+    while(c<=n)
+    {
+        d=1;
+        for(i=2;i<=c/2;i++)
+        {
+            d=c%i;
+            if(d==0)
+            break;
+        }
+        if(d!=0)
+            printf("\t %d",c);
+        a=b;
+        b=c;
+        c=a+b; 
+    }
+}
+void star_pattern_1()
+{
+    int n,i,j;
+    printf("\n how many row enter :");
+    scanf("%d",&n);
+    for(i=1;i<=n;i++)
+    {
+        for(j=1;j<=i;j++)
+        printf(" %d ",j);
+        printf("\n");
+    }
+}
+void star_pattern_2()
+{
+    int n,i,j;
+    printf("\n how many row enter :");
+    scanf("%d",&n);
+    for(i=1;i<=n;i++)
+    {
+        for(j=1;j<=n-i;j++)
+        printf("   ");
+        for(j=1;j<=i;j++)
+        printf(" %d ",j);
+        printf("\n");
+    }
+}
+void star_pattern_3()
+{
+    int n,i,j;
+    printf("\n how many row enter :");
+    scanf("%d",&n);
+    for(i=n;i>=1;i--)
+    {
+        for(j=1;j<=i;j++)
+        printf(" %d ",j);
+        printf("\n");
+    }
+}
+void star_pattern_4()
+{
+    int n,i,j;
+    printf("\n how many row enter :");
+    scanf("%d",&n);
+    for(i=n;i>=1;i--)
+    {
+        for(j=1;j<=i;j++)
+        printf(" * ");
+        printf("\n");
+    }
+}
+void star_pattern_5()
+{
+    int n,i,j;
+    printf("\n how many row enter :");
+    scanf("%d",&n);
+    for(i=1;i<=n;i++)
+    {
+        for(j=1;j<=i;j++)
+        printf(" %d ",i);
+        printf("\n");
+    }
+}
+void star_pattern_6()
+{
+    int m,n,i,j;
+    printf("\n how many row enter :");
+    scanf("%d",&n);
+    printf("\n how many column enter :");
+    scanf("%d",&m);
+    for(i=1;i<=n;i++)
+    {
+        for(j=1;j<=m;j++)
+        if(i==1||i==n||j==1||j==m)
+        printf(" # ");
+        else
+        printf("   ");
+        printf("\n");
+    }
+}
+void star_pattern_7()
+{
+    int n,i,j;
+    // n=3;
+    printf("\n how many row enter(odd number) :");
+    scanf("%d",&n);
+    n=n-(n/2);
+    for(i=1;i<=n;i++)
+    {
+        for(j=1;j<=n-i;j++)
+        printf("   ");
+        for(j=1;j<=(2*i)-1;j++)
+        printf(" * ");
+        printf("\n");
+    }
+    for(i=n-1;i>=1;i--)
+    {
+        for(j=1;j<=n-i;j++)
+        printf("   ");
+        for(j=1;j<=(2*i)-1;j++)
+        printf(" * ");
+        printf("\n");
+    }
+}
+void star_pattern_8()
+{
+    int n,i,j,k;
+    printf("\n how many row enter :");
+    scanf("%d",&n);
+    for(i=1;i<=n;i++)
+    {
+        k=1;
+        for(j=1;j<=(n*2)-1;j++)
+        {
+            if(j>=(n+1)-i && j<=(n-1)+i)
+            {
+                printf(" %d ",k);
+                j<n?k++:k--;
+            }
+            else
+            {
+                printf("   ");
+            }
+        }
+        printf("\n");
+    }
+}
+void star_pattern_9()
+{
+    int n,i,j;
+    printf("\n how many row enter :");
+    scanf("%d",&n);
+    for(i=1;i<=n;i++)
+    {
+        for(j=1;j<=n;j++)
+        if(j>=i && j<=n)
+        printf(" * ");
+        else
+        printf("   ");
+        printf("\n");
     }
 }
 void series_1()
@@ -712,4 +954,66 @@ void linear_search_using_array()
     printf("\n search is successful and %d is in the index %d",item,index);
     else
     printf("\n search is unsuccessful");
+}
+void matrix_addition_of_two_m__n_matrix()
+{
+    int a[100][100],b[100][100],c[100][100],m,n,i,j;
+    printf("\n Enter the value of m : ");
+    scanf("%d",&m);
+    printf("\n Enter the value of n : ");
+    scanf("%d",&n);
+    printf("\n Enter the first matrix element : ");
+    for(i=0;i<m;i++)
+        for(j=0;j<n;j++)
+            scanf("%d",&a[i][j]);
+    printf("\n Enter the second matrix element : ");
+    for(i=0;i<m;i++)
+        for(j=0;j<n;j++)
+            scanf("%d",&b[i][j]);
+    for(i=0;i<m;i++)
+        for(j=0;j<n;j++)
+        {
+            c[i][j]=a[i][j]+b[i][j];
+        }
+    printf("\n sum of two matrix is : ");
+    printf("\n");
+    for(i=0;i<m;i++)
+    {
+        for(j=0;j<n;j++)
+        {
+            printf("%d  ",c[i][j]);
+        }
+    printf("\n");
+    }
+}
+void matrix_subtraction_of_two_m__n_matrix()
+{
+    int a[100][100],b[100][100],c[100][100],m,n,i,j;
+    printf("\n Enter the value of m : ");
+    scanf("%d",&m);
+    printf("\n Enter the value of n : ");
+    scanf("%d",&n);
+    printf("\n Enter the first matrix element : ");
+    for(i=0;i<m;i++)
+        for(j=0;j<n;j++)
+            scanf("%d",&a[i][j]);
+    printf("\n Enter the second matrix element : ");
+    for(i=0;i<m;i++)
+        for(j=0;j<n;j++)
+            scanf("%d",&b[i][j]);
+    for(i=0;i<m;i++)
+        for(j=0;j<n;j++)
+        {
+            c[i][j]=a[i][j]-b[i][j];
+        }
+    printf("\n sum of two matrix is : ");
+    printf("\n");
+    for(i=0;i<m;i++)
+    {
+        for(j=0;j<n;j++)
+        {
+            printf("%d  ",c[i][j]);
+        }
+    printf("\n");
+    }
 }
