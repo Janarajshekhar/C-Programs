@@ -56,6 +56,12 @@ void matrix_subtraction_of_two_m__n_matrix();
 void transpose_of_a_given_matrix();
 void Find_the_length_of_a_string_using_library_function();
 void Find_the_reverse_of_a_string_usin_library_function();
+void Concatenation_of_two_strings();
+void Copy_a_string_using_library_function();
+void Compare_two_strings();
+void Find_the_length_of_a_string_not_using_library_function();
+void Find_the_reverse_of_a_string_not_using_library_function();
+void check_a_string_is_palindrom_or_not();
 int main()
 {
     // perform_all_arithmatic_operator();
@@ -112,7 +118,13 @@ int main()
     // matrix_subtraction_of_two_m__n_matrix();
     // transpose_of_a_given_matrix();
     // Find_the_length_of_a_string_using_library_function();
-    Find_the_reverse_of_a_string_usin_library_function();
+    // Find_the_reverse_of_a_string_usin_library_function();
+    // Concatenation_of_two_strings();
+    // Copy_a_string_using_library_function();
+    // Compare_two_strings();
+    // Find_the_length_of_a_string_not_using_library_function();
+    // Find_the_reverse_of_a_string_not_using_library_function();
+    check_a_string_is_palindrom_or_not();
     return 0;
 }
 void perform_all_arithmatic_operator()
@@ -1063,7 +1075,7 @@ void Find_the_length_of_a_string_using_library_function()
     char str[100];
     int len;
     printf("\n Enter a string : ");
-    scanf("%s",str);
+    scanf("%s",&str);
     len=strlen(str);
     printf("\n the length of string is %d",len);
 }
@@ -1084,4 +1096,101 @@ void Find_the_reverse_of_a_string_usin_library_function()
     str_2[i]='\0';
     printf("\n original string : %s",str_1);
     printf("\n reverse string : %s",str_2);
+}
+void Concatenation_of_two_strings()
+{
+    char str_1[100],str_2[100];
+    printf("\n Enter the first string : ");
+    scanf("%s",&str_1);
+    printf("\n Enter the second string : ");
+    scanf("%s",&str_2);
+    strcat(str_1,str_2);
+    printf("\n Concatenation string is : %s",str_1);
+}
+void Copy_a_string_using_library_function()
+{
+    char str_1[100],str_2[100];
+    printf("\n Enter a string : ");
+    fgets(str_1,100,stdin);
+    strcpy(str_2,str_1);
+    printf("\n copy string is : %s",str_2);
+}
+void Compare_two_strings()
+{
+    char str_1[100],str_2[100];
+    int result;
+    printf("\n Enter the first string : ");
+    fgets(str_1,100,stdin);
+    printf("\n Enter the second string : ");
+    fgets(str_2,100,stdin);
+    result=strcmp(str_1,str_2);
+    if(result==0)
+        printf("\n the string is equal");
+    else if(result<0)
+        printf("\n the first string is less then the second string");
+    else
+        printf("\n the first string is greater then the second string");
+}
+void Find_the_length_of_a_string_not_using_library_function()
+{
+    char str[100];
+    int length=0;
+    printf("\n Enter a string : ");
+    fgets(str,100,stdin);
+    while(str[length] != '\0')
+    {
+        length++;
+    }
+    if(length>0 && str[length-1]=='\n')
+    {
+        length--;
+    }
+    printf("\nlength of the string is : %d",length);
+}
+void Find_the_reverse_of_a_string_not_using_library_function()
+{
+    char str[100],rev[100];
+    int length=0,i;
+    printf("\n Enter a string : ");
+    fgets(str,100,stdin);
+    while(str[length] != '\0')
+    {
+        length++;
+    }
+    if(length>0 && str[length-1]=='\n')
+    {
+        length--;
+    }
+    for(i=0;i<length;i++)
+    {
+        rev[i]=str[length-i-1];
+    }
+    rev[length]='\0';
+    printf("\nreverse of the string is : %s",rev);
+}
+void check_a_string_is_palindrom_or_not()
+{
+    int i,j,len;
+    char str_1[40],str_2[40];
+    printf("Enter a string: ");
+    fgets(str_1,40,stdin);
+    len=strlen(str_1);
+    if (str_1[len - 1] == '\n') {
+        str_1[len - 1] = '\0';
+        len--;
+    }
+    for (i = 0, j = len - 1; j >= 0; i++, j--){
+    str_2[i]=str_1[j];
+    }
+    str_2[i]='\0';
+    printf("\n original string : %s",str_1);
+    printf("\n reverse string : %s",str_2);
+    if(strcmp(str_1,str_2)==0)
+    {
+        printf("\n string is palindrom");
+    }
+    else
+    {
+        printf("\n string is not palindrom");
+    }
 }
