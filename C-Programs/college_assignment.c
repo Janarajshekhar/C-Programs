@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<math.h>
+#include<string.h>
 void perform_all_arithmatic_operator();
 void convert_celsius_to_fahrenhite();
 void convert_fahrenhite_to_celsius();
@@ -52,6 +53,9 @@ void write_a_program_to_sort_an_array_of_n_element_in_ascending_order();
 void linear_search_using_array();
 void matrix_addition_of_two_m__n_matrix();
 void matrix_subtraction_of_two_m__n_matrix();
+void transpose_of_a_given_matrix();
+void Find_the_length_of_a_string_using_library_function();
+void Find_the_reverse_of_a_string_usin_library_function();
 int main()
 {
     // perform_all_arithmatic_operator();
@@ -105,7 +109,10 @@ int main()
     // write_a_program_to_sort_an_array_of_n_element_in_ascending_order();
     // linear_search_using_array();
     // matrix_addition_of_two_m__n_matrix();
-    matrix_subtraction_of_two_m__n_matrix();
+    // matrix_subtraction_of_two_m__n_matrix();
+    // transpose_of_a_given_matrix();
+    // Find_the_length_of_a_string_using_library_function();
+    Find_the_reverse_of_a_string_usin_library_function();
     return 0;
 }
 void perform_all_arithmatic_operator()
@@ -958,9 +965,9 @@ void linear_search_using_array()
 void matrix_addition_of_two_m__n_matrix()
 {
     int a[100][100],b[100][100],c[100][100],m,n,i,j;
-    printf("\n Enter the value of m : ");
+    printf("\n Enter the number of row : ");
     scanf("%d",&m);
-    printf("\n Enter the value of n : ");
+    printf("\n Enter the number of column : ");
     scanf("%d",&n);
     printf("\n Enter the first matrix element : ");
     for(i=0;i<m;i++)
@@ -989,9 +996,9 @@ void matrix_addition_of_two_m__n_matrix()
 void matrix_subtraction_of_two_m__n_matrix()
 {
     int a[100][100],b[100][100],c[100][100],m,n,i,j;
-    printf("\n Enter the value of m : ");
+    printf("\n Enter the number of row : ");
     scanf("%d",&m);
-    printf("\n Enter the value of n : ");
+    printf("\n Enter the number of column : ");
     scanf("%d",&n);
     printf("\n Enter the first matrix element : ");
     for(i=0;i<m;i++)
@@ -1016,4 +1023,65 @@ void matrix_subtraction_of_two_m__n_matrix()
         }
     printf("\n");
     }
+}
+void transpose_of_a_given_matrix()
+{
+    int a[100][100],m,n,i,j;
+    printf("\n Enter the number of row : ");
+    scanf("%d",&m);
+    printf("\n Enter the number of column : ");
+    scanf("%d",&n);
+    printf("\n Enter the matrix element : ");
+    for(i=0;i<m;i++)
+    {
+        for(j=0;j<n;j++)
+        {
+            scanf("%d",&a[i][j]);
+        }
+    }
+    printf("The matrix before transpose is : \n");
+    for(i=0;i<m;i++)
+    {
+        for(j=0;j<n;j++)
+        {
+            printf("%d\t",a[i][j]);
+        }
+        printf("\n");
+    }
+    printf("The matrix after transpose is : \n");
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<m;j++)
+        {
+            printf("%d\t",a[j][i]);
+        }
+        printf("\n");
+    }
+}
+void Find_the_length_of_a_string_using_library_function()
+{
+    char str[100];
+    int len;
+    printf("\n Enter a string : ");
+    scanf("%s",str);
+    len=strlen(str);
+    printf("\n the length of string is %d",len);
+}
+void Find_the_reverse_of_a_string_usin_library_function()
+{
+    int i,j,len;
+    char str_1[40],str_2[40];
+    printf("Enter a string: ");
+    fgets(str_1,40,stdin);
+    len=strlen(str_1);
+    if (str_1[len - 1] == '\n') {
+        str_1[len - 1] = '\0';
+        len--;
+    }
+    for (i = 0, j = len - 1; j >= 0; i++, j--){
+    str_2[i]=str_1[j];
+    }
+    str_2[i]='\0';
+    printf("\n original string : %s",str_1);
+    printf("\n reverse string : %s",str_2);
 }
