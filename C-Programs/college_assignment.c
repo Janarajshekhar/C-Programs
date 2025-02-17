@@ -21,7 +21,9 @@ void find_the_reverse_of_a_integer();
 void check_a_number_is_palindrom_or_not();
 void check_a_number_is_armstrong_or_not();
 void check_a_number_is_prime_or_not();
+void check_a_positive_integer_number_is_perfect_number_or_not(); 
 void check_a_number_is_strong_or_not();
+void Check_two_positive_numbers_are_amicable_or_not();
 void fibonacci_squence_from_0_to_n();
 void display_first_n_fibonacci_sequence();
 void tribonacci_squence_from_0_to_n();
@@ -84,7 +86,9 @@ int main()
     // check_a_number_is_palindrom_or_not();
     // check_a_number_is_armstrong_or_not();
     // check_a_number_is_prime_or_not();
+    // check_a_positive_integer_number_is_perfect_number_or_not();
     // check_a_number_is_strong_or_not();
+    Check_two_positive_numbers_are_amicable_or_not();
     // fibonacci_squence_from_0_to_n();
     // display_first_n_fibonacci_sequence();
     // tribonacci_squence_from_0_to_n();
@@ -124,7 +128,7 @@ int main()
     // Compare_two_strings();
     // Find_the_length_of_a_string_not_using_library_function();
     // Find_the_reverse_of_a_string_not_using_library_function();
-    check_a_string_is_palindrom_or_not();
+    // check_a_string_is_palindrom_or_not();
     return 0;
 }
 void perform_all_arithmatic_operator()
@@ -418,6 +422,30 @@ void check_a_number_is_prime_or_not()
     else
     printf("\n %d is not a prime number",a);
 }
+void check_a_positive_integer_number_is_perfect_number_or_not()
+{
+    int a,i,sum=0;
+    printf("\n Enter a positive integer : ");
+    scanf("%d",&a);
+    if(a>0)
+    {
+        for(i=1;i<=a/2;i++)
+        {
+            if(a%i==0)
+            {
+                sum=sum+i;
+            }
+        }
+        if(sum==a)
+            printf("\n %d is a perfect number",a);
+        else
+            printf("\n %d is not a perfect number",a);
+    }
+    else
+    {
+        printf("\n Please enter a positive integer");
+    }
+}
 void check_a_number_is_strong_or_not()
 {
     int a,f,c,i,r,s=0;
@@ -439,6 +467,37 @@ void check_a_number_is_strong_or_not()
     printf("\n %d is a strong number",c);
     else
     printf("\n %d is not a strong number",c);
+}
+void Check_two_positive_numbers_are_amicable_or_not()
+{
+    int a,b,i,j,sum1=0,sum2=0;
+    printf("\n Enter two positive number : ");
+    scanf("%d%d",&a,&b);
+    if(a>0 && b>0)
+    {
+        for(i=1;i<=a/2;i++)
+        {
+            if(a%i==0)
+            {
+                sum1=sum1+i;
+            }
+        }
+        for(j=1;j<=b/2;j++)
+        {
+            if(b%j==0)
+            {
+                sum2=sum2+j;
+            }
+        }
+        if(sum1==b && sum2==a)
+            printf("\n %d and %d is a amicabli number",a,b);
+        else
+            printf("\n %d and %d is not a amicabli number",a,b);
+    }
+    else
+    {
+        printf("\n Please enter a positive integer");
+    }
 }
 void fibonacci_squence_from_0_to_n()
 {
