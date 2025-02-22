@@ -10,12 +10,12 @@ int main()
         c=a+b;
             if(c==n)
             {
-            printf("\n %d is fibonacci series",n);
+            printf("\n %d is fibonacci number",n);
             break;
             }
             if(c>n)
             {
-            printf("\n %d is not fibonacci series",n);
+            printf("\n %d is not fibonacci number",n);
             break;
             }
         a=b;
