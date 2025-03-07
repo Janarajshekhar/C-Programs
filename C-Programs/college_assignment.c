@@ -88,7 +88,7 @@ int main()
     // check_a_number_is_prime_or_not();
     // check_a_positive_integer_number_is_perfect_number_or_not();
     // check_a_number_is_strong_or_not();
-    Check_two_positive_numbers_are_amicable_or_not();
+    // Check_two_positive_numbers_are_amicable_or_not();
     // fibonacci_squence_from_0_to_n();
     // display_first_n_fibonacci_sequence();
     // tribonacci_squence_from_0_to_n();
@@ -117,7 +117,7 @@ int main()
     // display_the_number_which_are_divisible_by_11_from_n_number_using_array();
     // display_all_perfect_square_number_from_n_number_using_array();
     // write_a_program_to_sort_an_array_of_n_element_in_ascending_order();
-    // linear_search_using_array();
+    linear_search_using_array();
     // matrix_addition_of_two_m__n_matrix();
     // matrix_subtraction_of_two_m__n_matrix();
     // transpose_of_a_given_matrix();
@@ -1028,7 +1028,8 @@ void linear_search_using_array()
             break;
         }
     }
-    if(index>0 && index<=i)
+    // if(index>0 && index<=i)
+    if(index==i)
     printf("\n search is successful and %d is in the index %d",item,index);
     else
     printf("\n search is unsuccessful");
@@ -1152,6 +1153,8 @@ void Find_the_reverse_of_a_string_usin_library_function()
     for (i = 0, j = len - 1; j >= 0; i++, j--){
     str_2[i]=str_1[j];
     }
+    printf("%d  ",i);
+    printf("%d",j);
     str_2[i]='\0';
     printf("\n original string : %s",str_1);
     printf("\n reverse string : %s",str_2);
