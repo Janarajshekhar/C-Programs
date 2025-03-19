@@ -1,11 +1,6 @@
 #include<stdio.h>
-void find_the_factorial_of_an_integer_using_recursion();
 int factorial(int num);
 int main()
-{
-    find_the_factorial_of_an_integer_using_recursion();
-}
-void find_the_factorial_of_an_integer_using_recursion()
 {
     int num,k;
     printf("\n Enter a integer number : ");
@@ -20,6 +15,7 @@ int factorial(int num)
     {
         return 1;
     }
-    fact=num*factorial(num-1);
-        return(fact);
+    else
+        fact=num*factorial(num-1);
+    return(fact);
 }

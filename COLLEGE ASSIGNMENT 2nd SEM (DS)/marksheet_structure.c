@@ -36,7 +36,7 @@ int main()
         printf("\n Subject %d: %.2f", i+1 , student.marks[i]);
     }
     printf("\n Total Marks: %.2f", student.total);
-    printf("\n Percentage: %.2f%%", student.percentage);
+    printf("\n Percentage: %.2f", student.percentage);
     
     if (student.percentage >= 60) 
     {
