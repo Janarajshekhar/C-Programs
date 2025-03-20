@@ -1,81 +1,91 @@
-#include<stdio.h>
-#include<stdlib.h>
-void display();
-void pop();
-void push();
-#define max 6
-int stack[max];
-int top=0;
-int main()
+#include<stdio.h>    // header file
+#include<stdlib.h>   // header file
+int manu();          // function declaration
+void display();      // function declaration
+void pop();          // function declaration
+void push();         // function declaration
+#define max 6        // difine stack size
+int stack[max];      // declaration stack global variable
+int top=0;           // declaration global variable
+int main()           // main fulction
 {
-    int ch;
-    printf("\n stack operating using ARRAY ....\n");
-    printf("\n *....*....*....***....*....*....*\n");
-    while(1){
-    printf("\n 1. Push");
-    printf("\n 2. Pop");
-    printf("\n 3. Display");
-    printf("\n 4. Quit");
-    printf("\n Enter your choich : ");
-    scanf("%d",&ch);
-        switch(ch)
+    int ch;          // declaration local variable
+    while(1)         // while loop
+    {
+        ch=manu();      // call the manu function 
+        switch(ch)      // switch statment
         {
-            case 1:
-                push();
-                break;
-            case 2:
-                pop();
-                break;
-            case 3:
-                display();
-                break;
-            case 4:
-                exit(0);
+            case 1:      //case statment
+                push();     // call the puse function
+                break;      // exit the switch-case
+            case 2:      //case statment
+                pop();      // call the pop function
+                break;      // exit the switch-case
+            case 3:      //case statment
+                display();  // call the display function
+                break;      // exit the switch-case
+            case 4:      //case statment 
+                exit(0);    // exit the program
         }
     }
     return 0;
 }
 
-void display()
+int manu()           // function defination
 {
-    int i;
-    if(top==0)
+    int ch;          // declaration local variable
+    printf("\n stack operating using ARRAY ....\n");      // output function
+    printf("\n *....*....*....***....*....*....*\n");     // output function
+    printf("\n 1. Push");               // output function
+    printf("\n 2. Pop");                // output function
+    printf("\n 3. Display");            // output function
+    printf("\n 4. Quit");               // output function
+    printf("\n Enter your choich : ");  // output function
+    scanf("%d",&ch);            // input function
+    return ch;                  //function return value
+}
+
+void display()          // function defination
+{
+    int i;              // declaration local variable         
+    if(top==0)          // if statment
     {
-        printf("\n\n stack empty....");
+        printf("\n\n stack empty....");     // output function
     }
-    else
+    else                // else statment
     {
-        printf("\n\n Element in stack : ");
-        for(i=0;i<top;i++)
-            printf("%d  ",stack[i]);
+        printf("\n\n Element in stack : ");     // output function
+        for(i=0;i<top;i++)                      //for loop
+            printf("%d  ",stack[i]);            // output function
     }
 }
 
-void pop()
-{
-    if(top==0)
+void pop()           // function defination
+{                      
+    if(top==0)       // if statment
     {
-        printf("\n\n stack underflow....");
+        printf("\n\n stack underflow....");    // output function
     }
-    else
+    else             // else statment
     {
-        printf("\n\n poped element is %d",stack[--top]); // stack[--top] = { top=top-1; stack[top] }
+        printf("\n\n poped element is %d",stack[--top]);    // output function   
+        // stack[--top] = { top=top-1; stack[top] }
     }
 }
 
-void push()
+void push()          // function defination
 {
-    int data;
-    if(top==max)
+    int data;        // declaration local variable
+    if(top==max)     // if statment
     {
-        printf("\n\n stack overflow....");
+        printf("\n\n stack overflow....");      // output function
     }
-    else
+    else             // else statment
     {
-        printf("\n\n enter data : ");
-        scanf("%d",&data);
-        stack[top]=data;
+        printf("\n\n enter data : ");        // output function
+        scanf("%d",&data);                  // input function
+        stack[top]=data;                    
         top=top+1;
-        printf("\n\n data pushed into the stack");
+        printf("\n\n data pushed into the stack");      // output function
     }
 }
