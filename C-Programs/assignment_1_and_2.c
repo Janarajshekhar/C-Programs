@@ -26,7 +26,7 @@ int main()
     printf("\nenter time format \"H:M\" :");
     scanf("%d:%d",&a,&b);
     // printf("\nenter the value of b :");
-    // scanf("%d",&b);
+    // scanf("%d",&b); 
     // printf("\nenter the value of c :");
     // scanf("%d",&c);
     print_time(a,b);
