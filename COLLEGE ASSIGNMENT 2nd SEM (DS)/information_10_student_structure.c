@@ -10,16 +10,16 @@ struct student
 };
 int main()
 {
-    struct student student[3];
+    struct student student[2];
     int i;
     printf("\n Enter information of 10 students : .......................... ");
-    for(i=0 ; i<3 ; i++)
+    for(i=0 ; i<2 ; i++)
     {
         printf("\n Student %d : ",i+1);
         printf("\n Enter student name : ");
-        scanf("%s",student[i].name);
+        scanf(" %[^\n]",student[i].name);
         printf("\n Enter sudent department : ");
-        scanf("%s", student[i].department_name);
+        scanf(" %[^\n]",student[i].department_name);
         printf("\n Enter student registration number : ");
         scanf("%d",&student[i].reg);
         printf("\n Enter student roll number : ");
@@ -29,7 +29,7 @@ int main()
     }
     printf("\n");
     printf("\n Stored student information : ................................ ");
-    for(i=0 ; i<3 ; i++)
+    for(i=0 ; i<2 ; i++)
     {
         printf("\n");
         printf("\n Student %d : ",i+1);

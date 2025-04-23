@@ -11,7 +11,7 @@ int main()
     struct book s;
     printf("\n Enter bookid, title and price : ");
     scanf("%d",&s.bookid);
-    scanf("%s",s.title);
+    scanf(" %[^\n]",s.title);
     scanf("%f",&s.price);
 
     struct book *ptr;

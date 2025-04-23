@@ -4,8 +4,8 @@ int manu();          // function declaration
 void display();      // function declaration
 void pop();          // function declaration
 void push();         // function declaration
-#define max 6        // difine stack size
-int stack[max];      // declaration stack global variable
+#define MAX 6        // difine stack size
+int stack[MAX];      // declaration stack global variable
 int top=0;           // declaration global variable
 int main()           // main fulction
 {
@@ -76,7 +76,7 @@ void pop()           // function defination
 void push()          // function defination
 {
     int data;        // declaration local variable
-    if(top==max)     // if statment
+    if(top==MAX)     // if statment
     {
         printf("\n\n stack overflow....");      // output function
     }
