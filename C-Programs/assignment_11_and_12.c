@@ -24,7 +24,7 @@ int main()
     int a;
     printf("\n enter number of line :");
     scanf("%d",&a);
-    function_20(a);
+    function_8(a);
     return 0;
 }
 void function_1(int a)
