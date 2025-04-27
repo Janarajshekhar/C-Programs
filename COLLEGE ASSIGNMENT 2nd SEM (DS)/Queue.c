@@ -9,7 +9,7 @@ int menu()
     printf("\n Queue oparation using ARRAY.......");
     printf("\n 1. Enqueue");
     printf("\n 2. Dequeue");
-    printf("\n 3. display");
+    printf("\n 3. Display");
     printf("\n 4. Quit");
     printf("\n Enter your choich : ");
     scanf("%d",&ch);
@@ -60,20 +60,23 @@ int main()
      while(1)
      {
          ch=menu();
-         switch(ch)
-         {
-         case 1:
-            Enqueue();
-            break;
-         case 2:
-            Dequeue();
-            break;
-         case 3:
-            DisplayQueue();
-            break;
-        case 4:
-            exit(0);
-         }
+         if(ch>0&&ch<5)
+            switch(ch)
+            {
+            case 1:
+                Enqueue();
+                break;
+            case 2:
+                Dequeue();
+                break;
+            case 3:
+                DisplayQueue();
+                break;
+            case 4:
+                exit(0);
+            }
+        else
+            printf("\n Enter correct choice");
      }
      return 0;
 }
