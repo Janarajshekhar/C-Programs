@@ -2,7 +2,7 @@
 #include<stdlib.h>
 #define MAX 6
 int Q[MAX];
-int front,rear;
+int front=0,rear=0;
 int menu()
 {
     int ch;
@@ -19,7 +19,7 @@ void Enqueue()
 {
     int data;
     if(rear==MAX)
-        printf("\n Linrar Queue is full");
+        printf("\n Linear Queue is full");
     else
     {
         printf("\n Enter data : ");
