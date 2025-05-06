@@ -2,7 +2,7 @@
 void sort(int a[],int n);
 int main()
 {
-    int a[50],n,i,j,temp;
+    int a[50],n,i;
     printf("\n Enter how many number : ");
     scanf("%d",&n);
     printf("\n Enter %d number : ",n);
@@ -13,7 +13,7 @@ int main()
 void sort(int a[],int n)
 {
     int i,j,temp;
-    for(i=0;i<n;i++)
+    for(i=0;i<n-1;i++)
     {
         for(j=0;j<n-i-1;j++)
         {
