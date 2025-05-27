@@ -14,7 +14,7 @@ int main()
         sum_burst_time += burst_time[i];
     }
     burst_time[9]=9999;
-    printf("\nprocess | Waiting Time  |Turn Around Time\n");
+    printf("\nprocess |Turn Around Time| Waiting Time\n");
     for(time=0;time<sum_burst_time;)
     {
         smallest=9;
@@ -23,7 +23,7 @@ int main()
             if(at[i]<=time && burst_time[i]>0 && burst_time[i]<burst_time[smallest])
                 smallest = i;
         }
-        printf("p[%d]\t|\t%d\t|\t%d\n",smallest+1,time+burst_time[smallest]-at[smallest],time-at[smallest]);
+        printf("p[%d]\t|\t%d\t |\t%d\n",smallest+1,time+burst_time[smallest]-at[smallest],time-at[smallest]);
         sumt += time + burst_time[smallest] - at[smallest];
         sumw += time - at[smallest];
         time += burst_time[smallest];
