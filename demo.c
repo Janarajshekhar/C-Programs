@@ -1,95 +1,177 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include<stdio.h>
+#include<stdlib.h>
 
-// Define the structure for a node
-struct Node {
+struct slinklist
+{
     int data;
-    struct Node* next;
+    struct slinklist *next;
 };
+typedef struct slinklist node;
+node *start = NULL;
 
-// Function to create a new node
-struct Node* createNode(int value) {
-    struct Node* newNode = (struct Node*) malloc(sizeof(struct Node));
-    newNode->data = value;
-    newNode->next = NULL;
-    return newNode;
+int menu()
+{
+    int ch;
+    printf("\n1. Create a list");
+    printf("\n2. Count nodes");
+    printf("\n3. Insert at beginning");
+    printf("\n4. Insert at end");
+    printf("\n5. Insert at middle");
+    printf("\n6. View list");
+    printf("\n7. Exit");
+    printf("\nEnter your choice: ");
+    scanf("%d", &ch);
+    return ch;
 }
 
-// Function to insert a node at the end
-void insertEnd(struct Node** head, int value) {
-    struct Node* newNode = createNode(value);
-
-    if (*head == NULL) {
-        *head = newNode;
-        return;
-    }
-
-    struct Node* temp = *head;
-    while (temp->next != NULL)
-        temp = temp->next;
-
-    temp->next = newNode;
+node *getnode()
+{
+    node *newnode;
+    newnode = (node*)malloc(sizeof(node));
+    printf("\nEnter data: ");
+    scanf("%d", &newnode->data);
+    newnode->next = NULL;
+    return newnode;
 }
 
-// Function to display the linked list
-void display(struct Node* head) {
-    if (head == NULL) {
-        printf("List is empty.\n");
-        return;
+int countnode(node *ptr)
+{
+    int count = 0;
+    while(ptr != NULL)
+    {
+        count++;
+        ptr = ptr->next;
     }
-
-    struct Node* temp = head;
-    printf("Linked List: ");
-    while (temp != NULL) {
-        printf("%d -> ", temp->data);
-        temp = temp->next;
-    }
-    printf("NULL\n");
+    return count;
 }
 
-// Function to delete a node by value
-void deleteNode(struct Node** head, int key) {
-    struct Node *temp = *head, *prev = NULL;
-
-    // If head node itself holds the key
-    if (temp != NULL && temp->data == key) {
-        *head = temp->next;
-        free(temp);
-        return;
+void createlist(int n)
+{
+    node *newnode;
+    node *temp;
+    for(int i = 0; i < n; i++)
+    {
+        newnode = getnode();
+        if(start == NULL)
+        {
+            start = newnode;
+        }
+        else
+        {
+            temp = start;
+            while(temp->next != NULL)
+                temp = temp->next;
+            temp->next = newnode;
+        }
     }
-
-    // Search for the key
-    while (temp != NULL && temp->data != key) {
-        prev = temp;
-        temp = temp->next;
-    }
-
-    // If key not found
-    if (temp == NULL) {
-        printf("Value %d not found in the list.\n", key);
-        return;
-    }
-
-    // Unlink the node
-    prev->next = temp->next;
-    free(temp);
 }
 
-// Main function to demonstrate the operations
-int main() {
-    struct Node* head = NULL;
+void insert_at_begining()
+{
+    node *newnode;
+    newnode = getnode();
+    if(start == NULL)
+    {
+        start = newnode;
+    }
+    else
+    {
+        newnode->next = start;
+        start = newnode;
+    }
+}
 
-    insertEnd(&head, 10);
-    insertEnd(&head, 20);
-    insertEnd(&head, 30);
-    insertEnd(&head, 40);
+void insert_at_end()
+{
+    node *newnode, *temp;
+    newnode = getnode();
+    if(start == NULL)
+    {
+        start = newnode;
+    }
+    else
+    {
+        temp = start;
+        while(temp->next!=NULL)
+            temp = temp->next;
+        temp->next = newnode;
+    }
+}
 
-    display(head);
+void insert_at_mid()
+{
+    node *newnode, *temp, *prev;
+    int pos,nodectr,ctr=1;
+    newnode = getnode();
+    printf("\n Enter the position : ");
+    scanf("%d",&pos);
+    nodectr = countnode(start);
+    if(pos > 1 && pos < nodectr)
+    {
+        temp = prev = start;
+        while(ctr < pos)
+        {
+            prev = temp;
+            temp = temp->next;
+            ctr++;
+        }
+        prev->next = newnode;
+        newnode-> next = temp;
+    }
+    else
+    {
+        printf("\n Position %d is not a middle position",pos);
+    }
+}
 
-    deleteNode(&head, 20);
-    display(head);
+void viewList(node *start)
+{
+    if(start==NULL)
+    {
+        printf("\n List empty");
+    }
+    else
+    {
+        while(start!=NULL)
+        {
+            printf("%d  ",start->data);
+            start=start->next;
+        }
+    }
+}
 
-    deleteNode(&head, 50); // Try to delete a non-existent value
-
-    return 0;
+int main()
+{
+    int ch, n;
+    while(1)
+    {
+        ch = menu();
+        switch(ch)
+        {
+            case 1:
+                printf("Enter How many nodes : ");
+                scanf("%d", &n);
+                createlist(n);
+                break;
+            case 2:
+                printf("Total nodes: %d\n", countnode(start));
+                break;
+            case 3:
+                insert_at_begining();
+                break;
+            case 4:
+                insert_at_end();
+                break;
+            case 5:
+                insert_at_mid();
+                break;
+            case 6:
+                viewList(start);
+                break;
+            case 7:
+                exit(0);
+            default:
+                printf("Invalid choice!\n");
+        }
+    }
 }

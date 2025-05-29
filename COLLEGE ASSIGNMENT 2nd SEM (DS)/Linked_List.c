@@ -1,48 +1,130 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-struct node
-{
-    int item;
-    struct node*next;
-};
-
-void insertAtLast(struct node**s)
+struct slinklist
 {
     int data;
-    printf("\n Enter data : ");
-    scanf("%d",&data);
-    struct node *n,*t;
-    n=malloc(sizeof(struct node));
-    n->item=data;
-    n->next=NULL;
-    if(*s==NULL)
-        *s=n;
-    else
-    {
-        t=*s;
-        while(t->next!=NULL)
-            t=t->next;
-        t->next=n;
-    }
-}
+    struct slinklist *next;
+};
+typedef struct slinklist node;
+node *start = NULL;
 
-void deleteFirst(struct node **s)
+int menu()
 {
-    struct node *t;
-    if(*s==NULL)
+    int ch;
+    printf("\n1. Create a list");
+    printf("\n2. Count nodes");
+    printf("\n3. Insert at beginning");
+    printf("\n4. Insert at end");
+    printf("\n5. Insert at middle");
+    printf("\n6. View list");
+    printf("\n7. Exit");
+    printf("\nEnter your choice: ");
+    scanf("%d", &ch);
+    return ch;
+}
+
+node *getnode()
+{
+    node *newnode;
+    newnode = (node*)malloc(sizeof(node));
+    printf("\nEnter data: ");
+    scanf("%d", &newnode->data);
+    newnode->next = NULL;
+    return newnode;
+}
+
+int countnode(node *ptr)
+{
+    int count = 0;
+    while(ptr != NULL)
     {
-        printf("\n List empty");
+        count++;
+        ptr = ptr->next;
     }
-    else
+    return count;
+}
+
+void createlist(int n)
+{
+    node *newnode;
+    node *temp;
+    for(int i = 0; i < n; i++)
     {
-        t=*s;
-        *s=t->next;
-        free(t);
+        newnode = getnode();
+        if(start == NULL)
+        {
+            start = newnode;
+        }
+        else
+        {
+            temp = start;
+            while(temp->next != NULL)
+                temp = temp->next;
+            temp->next = newnode;
+        }
     }
 }
 
-void viewList(struct node *start)
+void insert_at_begining()
+{
+    node *newnode;
+    newnode = getnode();
+    if(start == NULL)
+    {
+        start = newnode;
+    }
+    else
+    {
+        newnode->next = start;
+        start = newnode;
+    }
+}
+
+void insert_at_end()
+{
+    node *newnode, *temp;
+    newnode = getnode();
+    if(start == NULL)
+    {
+        start = newnode;
+    }
+    else
+    {
+        temp = start;
+        while(temp->next!=NULL)
+            temp = temp->next;
+        temp->next = newnode;
+    }
+}
+
+void insert_at_mid()
+{
+    node *newnode, *temp, *prev;
+    int pos,nodectr,ctr=1;
+    newnode = getnode();
+    printf("\n Enter the position : ");
+    scanf("%d",&pos);
+    nodectr = countnode(start);
+    if(pos > 1 && pos < nodectr)
+    {
+        temp = prev = start;
+        while(ctr < pos)
+        {
+            prev = temp;
+            temp = temp->next;
+            ctr++;
+        }
+        prev->next = newnode;
+        newnode-> next = temp;
+    }
+    else
+    {
+        printf("\n Position %d is not a middle position",pos);
+    }
+}
+
+void viewList(node *start)
 {
     if(start==NULL)
     {
@@ -52,45 +134,44 @@ void viewList(struct node *start)
     {
         while(start!=NULL)
         {
-            printf("%d  ",start->item);
+            printf("%d  ",start->data);
             start=start->next;
         }
     }
 }
 
-int menu()
-{
-    int a;
-    printf("\n 1. create node");
-    printf("\n 2. delete node");
-    printf("\n 3. view list");
-    printf("\n 4. quit");
-    printf("\n Enter your choich : ");
-    scanf("%d",&a);
-    return a;
-}
-
 int main()
 {
-    struct node *start = NULL;
-    int n;
+    int ch, n;
     while(1)
     {
-    n=menu();
-    switch (n)
+        ch = menu();
+        switch(ch)
         {
-        case 1:
-            insertAtLast(&start);
-            break;
-        case 2:
-            deleteFirst(&start);
-            break;
-        case 3:
-            viewList(start);
-            break;
-        case 4:
-            exit(0);
+            case 1:
+                printf("Enter How many nodes : ");
+                scanf("%d", &n);
+                createlist(n);
+                break;
+            case 2:
+                printf("Total nodes: %d\n", countnode(start));
+                break;
+            case 3:
+                insert_at_begining();
+                break;
+            case 4:
+                insert_at_end();
+                break;
+            case 5:
+                insert_at_mid();
+                break;
+            case 6:
+                viewList(start);
+                break;
+            case 7:
+                exit(0);
+            default:
+                printf("Invalid choice!\n");
         }
     }
 }
-
