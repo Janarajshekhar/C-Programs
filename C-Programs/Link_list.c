@@ -16,7 +16,7 @@ struct node* createNode()
     return(n);
 } 
 
-void insertNode()
+void insertNodeAtEnd()
 {
     struct node *temp,*t;
     temp=createNode();
@@ -118,7 +118,7 @@ int main()
                 createList(n);
                 break;
             case 2:
-                insertNode();
+                insertNodeAtEnd();
                 break;
             case 3:
                 deleteNode();
