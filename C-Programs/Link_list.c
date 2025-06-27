@@ -63,6 +63,18 @@ void createList(int n)
     }
 }
 
+void deleteNode(){
+    struct node *r;
+    if(START==NULL)
+        printf("List is empty");
+    else
+    {
+        r=START;
+        START=START->link;
+        free(r);
+    }
+}
+
 void viewList(struct node *START)
 {
     if(START==NULL)
@@ -84,8 +96,9 @@ int menu()
     int ch;
     printf("\n1. Create a list");
     printf("\n2. Insert at end");
-    printf("\n3. View list");
-    printf("\n4. Exit");
+    printf("\n3. deleteNode at first");
+    printf("\n4. View list");
+    printf("\n5. Exit");
     printf("\nEnter your choice: ");
     scanf("%d", &ch);
     return ch;
@@ -108,9 +121,12 @@ int main()
                 insertNode();
                 break;
             case 3:
-                viewList(START);
+                deleteNode();
                 break;
             case 4:
+                viewList(START);
+                break;
+            case 5:
                 exit(0);
             default:
                 printf("Invalid choice!\n");
