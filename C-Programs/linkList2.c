@@ -66,29 +66,29 @@ int countNode(struct node *start)
 
 void addNodeAtMid()
 {
-    struct node *temp,*t,*p;
-    int pos,count,i=1;;
-    temp=createNode();
-    printf("\n Enter a data : ");
-    scanf("%d",&temp->info);
-    printf("\n Enter Insert position : ");
+    struct node *newnode,*temp,*t;
+    int pos,count,i=1;
+    newnode=createNode();
+    printf("\n Enter Data : ");
+    scanf("%d",&newnode->info);
+    printf("\n Enter insert position : ");
     scanf("%d",&pos);
     count=countNode(start);
     if(pos>1 && pos<count)
     {
-        t=start;
+        temp=start;
         while(i<pos-1)
         {
-            t=t->next;
+            temp=temp->next;
             i++;
         }
-        p=t->next;
-        t->next=temp;
-        temp->next=p;
+        t=temp->next;
+        temp->next=newnode;
+        newnode->next=t;
     }
     else
     {
-        printf("\n Position %d is not a middle position",pos);
+        printf("\n Position %d is not mid position",pos);
     }
 }
 
